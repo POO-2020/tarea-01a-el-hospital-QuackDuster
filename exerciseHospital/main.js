@@ -1,4 +1,5 @@
-import Tiempos from "./tiempo.js"
+import Tiempos from "./tiempo.js";
+import Nombre from "./nombre.js";
 export default class Main {
 
 
@@ -9,9 +10,17 @@ export default class Main {
         console.log(h24.getFormato24())
     }
 
+    pruebaNombre() {
+        let people = new Nombre("Antonio Eduardo", "Lopez", "Castro");
+        console.log(people.getNombreCompleto())
+        console.log(people.getApellidoNombre())
+        console.log(people.getIniciales())
+    }
+
     
 }
 
-let tester = new Main();
+let tester = new Main()
 tester.pruebaTiempo();
+tester.pruebaNombre();
 
