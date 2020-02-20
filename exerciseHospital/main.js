@@ -4,9 +4,18 @@ import Fecha from "./fecha.js";
 import Paciente from "./paciente.js"
 import Doctor from "./doctor.js";
 import Cita from "./cita.js";
-import Hospital from "./hospital.js"
-export default class Main {
+import Hospital from "./hospital.js";
+class Main {
 
+    constructor(){
+        this.nombre1 = new Nombre("Roberto Amigo","Mendez","Castro")
+        this.nombre2 = new Nombre ("Carlos Roberto", "Huerta", "Alfaro")
+        this.paciente= new Paciente(this.nombre2,new Fecha(16,6,1999), "312465678")
+        this.tiempo= new Tiempos(6,22,"pm")
+        this.doctorName =new Doctor(this.nombre1, "Medicina", "3123442444", "242142142")
+        this.citasTotal =new Cita (new Fecha(5,7,2020),this.tiempo,this.doctorName,this.paciente)
+        this.hospital = new Hospital("Clinica #4","Avenida Madero, #455")
+    }
 
     pruebaTiempo() {
         let horas = new Tiempos(5,22,"pm");
@@ -50,15 +59,15 @@ export default class Main {
         let especialidad = ("Medico Cirujano")
         let nombre = new Nombre("Roberto", "Mendoza","Perez")
         let telefono = ("312213342")
-        let doctor = new Doctor(cedula,especialidad,nombre,telefono)
+        var doctor = new Doctor(cedula,especialidad,nombre,telefono)
         console.log("--------------Doctor-------------")
-        console.log(doctor.getPerfil())
+        console.log(doctor.getPerfilb())
     }
 
     pruebaCita() {
         let fecha = new Fecha(12,4,2020)
         let hora = new Tiempos (12,44, "pm")
-        let doctor = ("Roberto Alfredo")
+        let doctor = ("Dr. Roberto Alfredo")
         let paciente = ("Pablo Alfredo Gomez Rodriguez")
         let cita = new Cita (fecha,hora,doctor,paciente)
         console.log("---------Citas--------")
@@ -66,14 +75,14 @@ export default class Main {
     }
 
     pruebaHospital(){
-        let nombre = new Nombre("Antonio","Fernandez","Herrera")
-        let direccion= ("Venustiano Carranza #604")
-        let hora= new Tiempos (3,45,"pm")
-        let fecha=new Fecha (3,4,2020)
-        let doctores= new Doctor ("Alonzo")
-        let citas = new Cita()
-        console.log(nombre.getNombreCompleto())
-        console.log(direccion)
+
+        console.log("--------Hospital-------")
+        this.hospital.registrarDoctor(this.doctorName)
+        this.hospital.registrarCita(this.citasTotal)
+        this.hospital.listarDoctores()
+        this.hospital.listarCitas()
+        
+        
     }
 
 }
@@ -85,4 +94,4 @@ tester.pruebaFecha();
 tester.pruebaPaciente();
 tester.pruebaDoctor();
 tester.pruebaCita();
-
+tester.pruebaHospital();

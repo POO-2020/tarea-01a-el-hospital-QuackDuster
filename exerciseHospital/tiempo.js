@@ -1,4 +1,3 @@
-import Main from "./main.js"
 export default class Tiempos {
 
     constructor (hora,minutos,periodo) {
@@ -13,11 +12,11 @@ export default class Tiempos {
 
     }
     getFormato12() {
-        return `La hora es ${this.hora}:${this.minutos} ${this.periodo} en formato 12 horas`
+        return `${this.hora}:${this.minutos} ${this.periodo}`
     }
 
     getFormato24() {
-        return `La hora es ${this.h24hor}:${this.h24min} ${this.periodo} en formato 24 horas`
+        return `${this.h24hor}:${this.h24min} ${this.periodo}`
     }
 
     

@@ -1,4 +1,3 @@
-import Main from "./main.js"
 export default class Nombre {
  
     constructor (nombre, apePat, apeMat) {
