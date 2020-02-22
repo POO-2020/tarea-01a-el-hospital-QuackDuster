@@ -1,21 +1,22 @@
+import Doctor from "./doctor.js"
 export default class Hospital {
 
     constructor(nombre, direccion){
-    this.nombre=nombre
-    this.direccion=direccion
+    this.nombres=nombre
+    this.direcciones=direccion
     this.doctores= new Array()
     this.citas= new Array()
     }
 
     
-    registrarDoctor(Doctor){
-        this.doctores.push(Doctor)
+    registrarDoctor(doctor){
+        this.doctores.push(doctor)
     }
 
     listarDoctores(){
         console.log(">>>>>Doctores<<<<<<")
-        this.doctores.forEach( (doct, i) => {
-            console.log(`(${i+1}) ${doct.getPerfilb()}`)
+        this.doctores.forEach( (doctor,i) => {
+            console.log(`(${i+1}) ${doctor.getPerfilb()}`)
         })
             
     }

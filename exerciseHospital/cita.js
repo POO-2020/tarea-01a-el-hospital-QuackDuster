@@ -1,4 +1,5 @@
 import Paciente from "./paciente.js"
+import Nombre from "./nombre.js"
 import Tiempos from "./tiempo.js"
 export default class Cita {
 
@@ -10,6 +11,6 @@ export default class Cita {
     }
 
     getCita(){
-        return `${this.fecha.getFecha()}, ${this.hora.getFormato24()}, ${this.doctor}, ${this.paciente}`
+        return `${this.fecha.getFecha()}, ${this.hora.getFormato24()}, ${this.doctor.nombres.getNombreCompleto()}, ${this.paciente.nombre.getNombreCompleto()}`
     }
 }

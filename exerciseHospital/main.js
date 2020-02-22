@@ -8,13 +8,7 @@ import Hospital from "./hospital.js";
 class Main {
 
     constructor(){
-        this.nombre1 = new Nombre("Roberto Amigo","Mendez","Castro")
-        this.nombre2 = new Nombre ("Carlos Roberto", "Huerta", "Alfaro")
-        this.paciente= new Paciente(this.nombre2,new Fecha(16,6,1999), "312465678")
-        this.tiempo= new Tiempos(6,22,"pm")
-        this.doctorName =new Doctor(this.nombre1, "Medicina", "3123442444", "242142142")
-        this.citasTotal =new Cita (new Fecha(5,7,2020),this.tiempo,this.doctorName,this.paciente)
-        this.hospital = new Hospital("Clinica #4","Avenida Madero, #455")
+        this.hospital=new Hospital("Clinica #4","Avenida Madero, #455")
     }
 
     pruebaTiempo() {
@@ -67,8 +61,8 @@ class Main {
     pruebaCita() {
         let fecha = new Fecha(12,4,2020)
         let hora = new Tiempos (12,44, "pm")
-        let doctor = ("Dr. Roberto Alfredo")
-        let paciente = ("Pablo Alfredo Gomez Rodriguez")
+        let doctor = new Doctor ("213131444","Pediatria",new Nombre("Alberto","Roberto", "Alfredo"),"GGGD3545F" )
+        let paciente = new Paciente (new Nombre("Oscar","Flores","Jimenez"), new Fecha(2,4,2020), "31323245")
         let cita = new Cita (fecha,hora,doctor,paciente)
         console.log("---------Citas--------")
         console.log(cita.getCita())
@@ -77,9 +71,13 @@ class Main {
     pruebaHospital(){
 
         console.log("--------Hospital-------")
-        this.hospital.registrarDoctor(this.doctorName)
-        this.hospital.registrarCita(this.citasTotal)
+        let doctorA = new Doctor("312122435","Cirujano", new Nombre("Alfredo","Rosales", "Villa"),"32324FDSAAA" )
+        let doctorB = new Doctor("21345556","Oftalmologo", new Nombre("Everardo", "Castro", "Flores"), "245663AF")
+        let cita1 = new Cita(new Fecha(20,12,2020),new Tiempos(5,0,"pm"),new Doctor("5554663256","Ortodoncia", new Nombre("Carlos", "Castro", "Flores"), "AF343FGGS43"), new Paciente(new Nombre("Juan", "Cortes", "Garcia"),new Fecha(2,5,2020),"3122433564"))
+        this.hospital.registrarDoctor(doctorA)
+        this.hospital.registrarDoctor(doctorB)
         this.hospital.listarDoctores()
+        this.hospital.registrarCita(cita1)
         this.hospital.listarCitas()
         
         
@@ -95,3 +93,4 @@ tester.pruebaPaciente();
 tester.pruebaDoctor();
 tester.pruebaCita();
 tester.pruebaHospital();
+
